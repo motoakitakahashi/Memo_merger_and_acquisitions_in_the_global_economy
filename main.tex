@@ -1,0 +1,133 @@
+\documentclass[12pt,letterpaper]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage[english]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage{amsmath}
+\usepackage{amssymb} 
+\usepackage[retainorgcmds]{IEEEtrantools}
+\usepackage{setspace}
+\setstretch{1.2}
+\setlength{\marginparwidth}{2cm}
+\usepackage{graphicx}
+\usepackage{tabularx}
+\usepackage{subfig}
+\usepackage{kpfonts}    % for nice fonts
+\usepackage{microtype} 
+\usepackage{booktabs}   % for nice tables
+\usepackage{bm}         % for bold math
+\usepackage{listings}   % for inserting code
+\usepackage{verbatim}   % useful for program listings
+\usepackage{color}  
+\usepackage[colorlinks=true, citecolor=blue]{hyperref}
+% use for hypertext
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage{natbib}
+\newcommand{\relmiddle}[1]{\mathrel{}\middle#1\mathrel{}}
+\usepackage{dcolumn}
+
+\begin{document}
+
+%+Title
+\title{Mergers and Acquisitions in the Global Economy}
+
+\author{
+  Motoaki Takahashi
+}
+
+\date{\today}
+\maketitle
+%-Title
+%+Abstract
+\begin{abstract}
+
+\end{abstract}
+
+
+Two directions:
+\begin{enumerate}
+    \item Extend David 2020 to a multi-county setting.
+    \item Amend Hopenheyn's structure to BEJK.
+\end{enumerate}
+
+\section{Krugman setting}
+The utility of consumers in country $i$ is
+\begin{equation}
+    U_{i}=\int_{t=0}^{\infty}e^{-\rho t}\log C_{i,t}dt
+\end{equation}
+where
+\begin{equation}
+    C_{i,t}=\left[\int_{z \in \Omega}q_{i}(z)^{\frac{\sigma-1}{\sigma}}dz \right]^{\frac{\sigma}{\sigma-1}}.
+\end{equation}
+Hand-to-mouth consumers:
+\begin{equation}
+    U_{i}=\int_{t=0}^{\infty}e^{-\rho t}\log \left(\frac{w_{i,t}}{P_{i,t}}\right) dt.   
+\end{equation}
+Firms with productivity $z$ has the production function:
+\begin{equation}
+    q(z)=z^{1-\alpha}l(z)^{\alpha},\ \alpha<1.
+\end{equation}
+This is from Lucas' span of control model.\par
+There are $N$ countries. I focus on a stationary equilibrium.\footnote{David 2020 uses the terminology "stationary equilibrium." I'm not sure of the difference between a stationary equilibrium and a steady state.} Drop subscript $t$. The demand for variety $z$ shipped from country $i$ to country $j$ is
+\begin{equation}
+    C_{i,j}(z)=\left(\frac{p_{i}(z)t_{i,j}}{P_{j}} \right)^{-\sigma}\frac{X_{j}}{P_{j}}.
+\end{equation}
+
+To meet the demands from the world, given the price $p(z)$, firm $z$ produces
+\begin{equation}
+\begin{split}
+    y_{i}(z) &= \sum_{j=1}^{N}t_{i,j}\left(\frac{p_{i}(z)t_{i,j}}{P_{j}}
+    \right)^{-\sigma}\frac{X_{j}}{P_{j}}\\
+    &= p_{i}(z)^{-\sigma}\sum_{j=1}^{N}t_{i,j}\left(\frac{t_{i,j}}{P_{j}} \right)^{-\sigma}\frac{X_{j}}{P_{j}}\\
+    &= p_{i}(z)^{-\sigma}\Phi_{i},
+\end{split}\end{equation}
+where
+\begin{equation}
+    \Phi_{i}=\sum_{j=1}^{N}t_{i,j}\left(\frac{t_{i,j}}{P_{j}} \right)^{-\sigma}\frac{X_{j}}{P_{j}}.
+\end{equation}
+This is a demand shifter for country $i$ or the attractiveness as a production location.\par
+
+Rewrite the production function so that I can derive the labor demand as a function of the price:
+\begin{equation}
+\begin{split}
+l(z)&=z^{-\frac{1-\alpha}{\alpha}}y_{i}(z)^{\frac{1}{\alpha}}\\
+&=z^{-\frac{1-\alpha}{\alpha}}[p_{i}(z)^{-\sigma}\Phi_{i}]^{\frac{1}{\alpha}}\\
+&=z^{-\frac{1-\alpha}{\alpha}}p_{i}(z)^{-\frac{\sigma}{\alpha}}\Phi_{i}^{\frac{1}{\alpha}}.
+\end{split}
+\end{equation}
+
+The profits as a function of the price:
+\begin{equation}
+\begin{split}
+    \pi_{i}(z)&=p_{i}(z)\cdot y_{i}(z)-w_{i}l(z)\\
+    &=p_{i}(z)^{1-\sigma}\Phi_{i}-w_{i}z^{-\frac{1-\alpha}{\alpha}}p_{i}(z)^{-\frac{\sigma}{\alpha}}\Phi_{i}^{\frac{1}{\alpha}}.
+\end{split}
+\end{equation}
+
+The FOC is
+\begin{equation}
+    \frac{\partial \pi_{i}(z)}{\partial p_{i}}=(1-\sigma)p_{i}(z)^{-\sigma}\Phi_{i}+\frac{\sigma}{\alpha}w_{i}z^{-\frac{1-\alpha}{\alpha}}p_{i}(z)^{-\frac{\sigma}{\alpha}-1}\Phi_{i}^{\frac{1}{\alpha}}=0.
+\end{equation}
+
+Algebra on the FOC:
+\begin{align}
+    (\sigma-1)p_{i}(z)^{-\sigma}\Phi_{i}=\frac{\sigma}{\alpha}w_{i}z^{-\frac{1-\alpha}{\alpha}}p_{i}(z)^{-\frac{\sigma}{\alpha}-1}\Phi_{i}^{\frac{1}{\alpha}}.\\
+    p_{i}(z)=\left[\frac{1}{\alpha}\frac{\sigma}{\sigma-1}w_{i}\left(\frac{\Phi_{i}}{z} \right)^{\frac{1-\alpha}{\alpha}} \right]^{\frac{\alpha}{\sigma+\alpha-\alpha\sigma}}. \label{eq: optimal price}
+\end{align}
+
+Substitute \ref{eq: optimal price} into the profits:
+\begin{align}
+    \pi_{i}(z)&=\left(\left[\frac{1}{\alpha}\frac{\sigma}{\sigma-1}w_{i}\left(\frac{\Phi_{i}}{z} \right)^{\frac{1-\alpha}{\alpha}} \right]^{\frac{\alpha}{\sigma+\alpha-\alpha\sigma}} \right)^{1-\sigma}\Phi_{i}
+    -w_{i}z^{-\frac{1-\alpha}{\alpha}}
+    \left(\left[\frac{1}{\alpha}\frac{\sigma}{\sigma-1}w_{i}\left(\frac{\Phi_{i}}{z} \right)^{\frac{1-\alpha}{\alpha}} \right]^{\frac{\alpha}{\sigma+\alpha-\alpha\sigma}} \right)^{-\frac{\sigma}{\alpha}}\Phi_{i}^{\frac{1}{\alpha}}\\
+    &=\left[\alpha^{-\frac{\alpha(1-\sigma)}{\sigma+\alpha-\alpha\sigma}}\left(\frac{\sigma}{\sigma-1} \right)^{\frac{\alpha(1-\sigma)}{\sigma+\alpha-\alpha\sigma}}-\alpha^{\frac{\sigma}{\sigma+\alpha-\alpha\sigma}}\left(\frac{\sigma}{\sigma-1} \right)^{-\frac{\sigma}{\sigma+\alpha-\alpha\sigma}} \right]\cdot z^{-\frac{(1-\alpha)(1-\sigma)}{\sigma+\alpha-\alpha\sigma}}w_{i}^{\frac{\alpha(1-\sigma)}{\sigma+\alpha-\alpha\sigma}}\cdot \Phi_{i}^{\frac{1}{\sigma+\alpha-\alpha\sigma}}.
+\end{align}
+Let
+\begin{equation}
+    \Lambda = \alpha^{-\frac{\alpha(1-\sigma)}{\sigma+\alpha-\alpha\sigma}}\left(\frac{\sigma}{\sigma-1} \right)^{\frac{\alpha(1-\sigma)}{\sigma+\alpha-\alpha\sigma}}-\alpha^{\frac{\sigma}{\sigma+\alpha-\alpha\sigma}}\left(\frac{\sigma}{\sigma-1} \right)^{-\frac{\sigma}{\sigma+\alpha-\alpha\sigma}} .
+\end{equation}
+Then
+\begin{equation}
+    \pi_{i}(z)=\Lambda z^{-\frac{(1-\alpha)(1-\sigma)}{\sigma+\alpha-\alpha\sigma}}w_{i}^{\frac{\alpha(1-\sigma)}{\sigma+\alpha-\alpha\sigma}}\cdot \Phi_{i}^{\frac{1}{\sigma+\alpha-\alpha\sigma}}.
+\end{equation}
+
+\end{document}
